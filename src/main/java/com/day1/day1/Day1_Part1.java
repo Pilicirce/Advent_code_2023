@@ -1,4 +1,4 @@
-package com.ejercicio1.ejerc1;
+package com.day1.day1;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -8,7 +8,7 @@ import java.util.List;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Ejerc1Application {
+public class Day1_Part1 {
 
     public static void main(String[] args) {
         String filePath = "C:\\Users\\msolisma\\Desktop\\PILI\\CURSOS\\AdventCode\\ejercicioDia1.txt";
