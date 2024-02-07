@@ -11,79 +11,57 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class Ejerc1Application {
 
     public static void main(String[] args) {
-        // SpringApplication.run(Ejerc1Application.class, args);
         String filePath = "C:\\Users\\msolisma\\Desktop\\PILI\\CURSOS\\AdventCode\\ejercicioDia1.txt";
 
         try {
-            // 1) Abre el archivo para lectura
-            // BufferedReader: es una clase que proporciona una forma eficiente de leer el
-            // texto de un flujo de entrada (archivo)
-            // new BufferedReades: crea una nueva instancia de BufferedReader y recibe como
-            // argumento el FileReader
-            // FileReader es una nueva instancia que apunta al archivo de la ruta
-            // reader es la variable (de tipo BufferedReader)s
+            // 1) Open the file for reading
+
             BufferedReader reader = new BufferedReader(new FileReader(filePath));
 
-            // 2) declara variables y crea arrays
+            // 2) declare variables
             String linea;
-            List<Integer> numerosDosDigitos = new ArrayList<>(); // Lista para almacenar los números de dos dígitos en
-                                                                 // un array
+            List<Integer> numerosDosDigitos = new ArrayList<>();
 
-            // 3) Itera sobre cada línea del archivo
+            // 3) Iterate over each line of the file
             while ((linea = reader.readLine()) != null) {
-                // Elimina los espacios en blanco al inicio y al final de la línea
                 linea = linea.trim();
 
-                if (!linea.isEmpty()) { // para evitar procesar líneas en blanco
-                    // 4) Encuentra el primer dígito (número) entre las letras
-                    // 4.a) Primero encuentra el índice del primer dígito que sea un número
+                if (!linea.isEmpty()) { // to avoid processing empty lines
+                    // 4) Find the first digit (number) between the letters
+                    // 4.a) First find the index of the first digit that is a number
                     int indicePrimerDigito = 0;
                     while (indicePrimerDigito < linea.length()
                             && !Character.isDigit(linea.charAt(indicePrimerDigito))) {
                         indicePrimerDigito++;
-                        // esto verifica si el carácter en la posición actual (indicePrimerDigito) de la
-                        // cadena linea es un dígito o no. Character.isDigit() es un método que devuelve
-                        // true si el carácter proporcionado es un dígito, y false de lo contrario. Pero
-                        // como he puesto un (!), es al reves. Entonces, el bucle se ejecuta mientras en
-                        // indice del caracter que analizo sea menor que la longitud del string linea Y
-                        // mientras que el caracter no sea un dígito.
                     }
 
-                    // 4.b) Luego coge el valor de ese índice en la cadena y lo almacenamos
+                    // 4.b) Then take the value of that index in the chain and store it
                     char primerDigito = linea.charAt(indicePrimerDigito);
-                    // este método coge un índice (indicePrimerDigito) y devuelve el carácter en esa
-                    // posición dentro de la cadena linea. En términos sencillos, esto extrae el
-                    // carácter en la posición del primer dígito encontrado y lo guarda en la
-                    // variable primerDigito.
+                    // this method takes an index (indicePrimerDigito) and returns the character at
+                    // that position within the line string.
 
-                    // 5) Encuentra el último dígito (número) entre las letras
-                    // 5.a) Primero, encuentra el índice del último dígito que sea un número
+                    // 5) Find the last digit (number) between the letters
+                    // 5.a) First find the index of the last digit that is a number
                     int indiceUltimoDigito = linea.length() - 1;
                     while (indiceUltimoDigito >= 0 && !Character.isDigit(linea.charAt(indiceUltimoDigito))) {
                         indiceUltimoDigito--;
-                        // esto es lo mismo que con el primer dígito, pero empieza por atras (lenth-1) y
-                        // se va restando índices hasta que llega a 0.
-
-                        // NO me FALTA la parte en que si no hay último número que coja el primero,
-                        // porque en realidad, estoy recorriendo el string otra vez, pero de atras para
-                        // alante
                     }
 
-                    // 5.b) Luego coge el valor de ese índice en la cadena y lo almacenamos
+                    // 5.b) Then take the value of that index in the chain and store it
                     char ultimoDigito = linea.charAt(indiceUltimoDigito);
 
-                    // 6) Convierte los caracteres a dígitos y crea el número de dos dígitos
+                    // 6) Convert characters to digits and create the two-digit number
                     int numeroDosDigitosLinea = Integer.parseInt("" + primerDigito + ultimoDigito);
 
-                    // 7) Almacena el número de dos dígitos en la lista
+                    // 7) Store the two-digit number in the list
                     numerosDosDigitos.add(numeroDosDigitosLinea);
 
-                    // Muestra el número de dos dígitos obtenido de la línea
+                    // Show the two-digit number obtained from the line
                     System.out.println("Número de dos dígitos de la línea: " + numeroDosDigitosLinea);
                 }
             }
 
-            // 8) Cierra el lector de archivo
+            // 8) Close the file reader
             reader.close();
 
             // 9) Suma los números de dos dígitos almacenados en la lista
@@ -92,7 +70,7 @@ public class Ejerc1Application {
                 suma += num;
             }
 
-            // 10) Muestra la suma total de los números de dos dígitos
+            // 10) Add two-digit numbers stored in the list
             System.out.println("Suma total: " + suma);
 
         } catch (IOException e) {
