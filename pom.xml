@@ -60,7 +60,7 @@
             <artifactId>exec-maven-plugin</artifactId>
             <version>3.1.1</version>
             <configuration>
-                <mainClass>com.ejercicio1.Ejerc1Application</mainClass>
+                <mainClass>com.adventcode2023.app.AdventCodeApp</mainClass>
             </configuration>
         </plugin>
 
