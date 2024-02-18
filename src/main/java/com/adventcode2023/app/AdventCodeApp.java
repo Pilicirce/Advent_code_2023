@@ -11,7 +11,7 @@ public class AdventCodeApp {
 
         // Aquí puedes llamar a los métodos de tus ejercicios según sea necesario
         Day1_Part1.solveDay1Part1();
-        // Day1_Part2.solve();
+        Day1_Part2.solveDay1Part2();
         // Agrega llamadas para otros días y partes según sea necesario
 
         // ESTO ES PARA QUE EL USUARIO INTRODUZCA LO QUE QUIERE QUE SE EJECUTE (POR

@@ -11,6 +11,13 @@ import java.util.List;
 public class Day1_Part2 {
 
     public static void main(String[] args) {
+
+        solveDay1Part2();
+
+    }
+
+    public static void solveDay1Part2() {
+
         String inputFilePath = "C:\\Users\\msolisma\\Desktop\\PILI\\CURSOS\\AdventCode\\ejercicioDia1.txt";
         String outputFilePath = "C:\\Users\\msolisma\\Desktop\\PILI\\CURSOS\\AdventCode\\ejercicioDia1b_modificado.txt";
 
@@ -98,11 +105,13 @@ public class Day1_Part2 {
             System.out.println("Proceso completado. El archivo modificado se encuentra en: " + outputFilePath);
 
             // 11) Muestra la suma total de los números de dos dígitos
-            System.out.println("Suma total: " + suma);
+            System.out.println("SOLUTION DAY 1, PART 2 EXERCISE: Suma total: " + suma);
 
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        throw new UnsupportedOperationException("Unimplemented method 'solveDay1Part2'");
     }
 
     // 4.b) fuera de la clase main: metodo para reemplazar palabras por numeros
@@ -118,27 +127,4 @@ public class Day1_Part2 {
                 .replaceAll("nine", "n9e");
     }
 
-    // private static int encontrarPrimerDigito(String linea) {
-    // for (char c : linea.toCharArray()) {
-    // if (Character.isDigit(c)) {
-    // return Character.getNumericValue(c);
-    // }
-    // }
-    // return 0; // Retorna 0 si no se encuentra ningún dígito
-    // }
-
-    // private static int encontrarUltimoDigito(String linea) {
-    // for (int i = linea.length() - 1; i >= 0; i--) {
-    // char c = linea.charAt(i);
-    // if (Character.isDigit(c)) {
-    // return Character.getNumericValue(c);
-    // }
-    // }
-    // return 0; // Retorna 0 si no se encuentra ningún dígito
-    // }
-
-    // private static int obtenerNumeroDosDigitos(int primerDigito, int
-    // ultimoDigito) {
-    // return primerDigito * 10 + ultimoDigito;
-    // }
 }
