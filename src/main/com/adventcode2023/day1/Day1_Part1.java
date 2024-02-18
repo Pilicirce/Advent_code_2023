@@ -10,7 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class Day1_Part1 {
 
-    public static void mainDay1Part1(String[] args) {
+    public static void main(String[] args) {
         String filePath = "C:\\Users\\msolisma\\Desktop\\PILI\\CURSOS\\AdventCode\\ejercicioDia1.txt";
 
         try {

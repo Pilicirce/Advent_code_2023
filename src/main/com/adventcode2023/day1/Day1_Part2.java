@@ -10,7 +10,7 @@ import java.util.List;
 
 public class Day1_Part2 {
 
-    public static void mainDay1Part2(String[] args) {
+    public static void main(String[] args) {
         String inputFilePath = "C:\\Users\\msolisma\\Desktop\\PILI\\CURSOS\\AdventCode\\ejercicioDia1.txt";
         String outputFilePath = "C:\\Users\\msolisma\\Desktop\\PILI\\CURSOS\\AdventCode\\ejercicioDia1b_modificado.txt";
 
