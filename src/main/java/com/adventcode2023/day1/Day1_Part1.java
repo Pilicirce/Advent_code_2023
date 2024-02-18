@@ -5,12 +5,19 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication
 public class Day1_Part1 {
 
     public static void main(String[] args) {
+
+        solveDay1Part1();
+
+    }
+
+    public static void solveDay1Part1() {
+
+        System.out.println("SOLVING EXERCISE DAY 1, PART 1 : ");
+
         String filePath = "C:\\Users\\msolisma\\Desktop\\PILI\\CURSOS\\AdventCode\\ejercicioDia1.txt";
 
         try {
@@ -71,11 +78,13 @@ public class Day1_Part1 {
             }
 
             // 10) Add two-digit numbers stored in the list
-            System.out.println("Suma total: " + suma);
+            System.out.println("SOLUTION DAY 1, PART 1 EXERCISE: Total sum: " + suma);
 
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        throw new UnsupportedOperationException("Unimplemented method 'solveDay1Part1'");
     }
 
 }
