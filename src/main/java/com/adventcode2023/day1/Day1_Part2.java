@@ -22,81 +22,71 @@ public class Day1_Part2 {
         String outputFilePath = "C:\\Users\\msolisma\\Desktop\\PILI\\CURSOS\\AdventCode\\ejercicioDia1b_modificado.txt";
 
         try {
-            // 1) Abre el archivo para lectura
+            // 1) Open the file for reading
             BufferedReader reader = new BufferedReader(new FileReader(inputFilePath));
 
-            // 2) Abre el archivo de salida para escritura
+            // 2) Open the output file for writing
             BufferedWriter writer = new BufferedWriter(new FileWriter(outputFilePath));
 
-            // 3) Declara variables
+            // 3) declare variables
             String linea;
-            List<Integer> numerosDosDigitos = new ArrayList<>(); // Lista para almacenar los números de dos dígitos en
-                                                                 // un array
+            List<Integer> numerosDosDigitos = new ArrayList<>();
 
-            // 4) Itera sobre cada línea del archivo y reemplaza las palabras por números
-            // (en un método a parte)
+            // 4) Iterate over each line of the file and replace the words (spelled numbers)
+            // with numbers (digits)
+            // (in a separate method)
             while ((linea = reader.readLine()) != null) {
-                // 4.a) Reemplaza las palabras con números
-                linea = reemplazarPalabrasConNumeros(linea).trim(); // Elimina los espacios en blanco al inicio y al
-                                                                    // final de la línea
+                // 4.a) Replace the words with numbers
+                linea = reemplazarPalabrasConNumeros(linea).trim();
 
-                // 4.c) Escribe la línea modificada en el archivo de salida
+                // 4.c) Write the modified line to the output file
                 writer.write(linea);
-                writer.newLine(); // Añade una nueva línea después de cada línea modificada
+                writer.newLine();
 
-                // 5) Encuentra el primer dígito (número) en cada línea:
-                if (!linea.isEmpty()) { // para evitar procesar líneas en blanco
+                // 5) Find the first digit (number) in each line:
+                if (!linea.isEmpty()) { // to avoid processing blank lines
 
-                    // 5.a) Primero, encuentra el índice del primer dígito que sea un número
+                    // 5.a) First, find the index of the first digit that is a number
                     int indicePrimerDigito = 0;
                     while (indicePrimerDigito < linea.length()
                             && !Character.isDigit(linea.charAt(indicePrimerDigito))) {
                         indicePrimerDigito++;
-                        // esto verifica si el carácter en la posición actual (indicePrimerDigito) de la
-                        // cadena linea es un dígito o no. Character.isDigit() es un método que devuelve
-                        // true si el carácter proporcionado es un dígito, y false de lo contrario. Pero
-                        // como he puesto un (!), es al reves. Entonces, el bucle se ejecuta mientras en
-                        // indice del caracter que analizo sea menor que la lingitud del string linea Y
-                        // mientras que el caracter no sea un dígito.
+                        // The loop is executed as long as the index of the character it parses is less
+                        // than the length of the line string AND as long as the character is not a
+                        // digit.
                     }
 
-                    // 5.b) Luego coge el valor de ese índice en la cadena y lo almacenamos
+                    // 5.b) Then take the value of that index in the chain and store it
                     char primerDigito = linea.charAt(indicePrimerDigito);
-                    // este método coge un índice (indicePrimerDigito) y devuelve el carácter en esa
-                    // posición dentro de la cadena linea. En términos sencillos, esto extrae el
-                    // carácter en la posición del primer dígito encontrado y lo guarda en la
-                    // variable primerDigito.
+                    // // this extracts the character at the position of the first digit found and
+                    // stores it in the variable primerDigito.
 
-                    // 6) Encuentra el último dígito (número) entre las letras
-                    // 6.a) Primero, encuentra el índice del último dígito que sea un número
+                    // 6) Find the last digit (number) between the letters
+                    // 6.a) First, find the index of the last digit that is a number
                     int indiceUltimoDigito = linea.length() - 1;
                     while (indiceUltimoDigito >= 0 && !Character.isDigit(linea.charAt(indiceUltimoDigito))) {
                         indiceUltimoDigito--;
-                        // esto es lo mismo que con el primer dígito, pero empieza por atras (lenth-1) y
-                        // se va restando índices hasta que llega a 0.
-                        // porque en realidad, estoy recorriendo el string otra vez, pero de atras para
-                        // alante
                     }
 
-                    // 6.b) Luego coge el valor de ese índice en la cadena y lo almacenamos
+                    // 6.b) Then take the value of that index in the chain and store it
                     char ultimoDigito = linea.charAt(indiceUltimoDigito);
 
-                    // 7) Convierte los caracteres a dígitos y crea el número de dos dígitos
+                    // 7) Convert characters to digits and create the two-digit number
                     int numeroDosDigitosLinea = Integer.parseInt("" + primerDigito + ultimoDigito);
 
-                    // 8) Almacena el número de dos dígitos en la lista
+                    // 8) Store the two-digit numbers in the list
                     numerosDosDigitos.add(numeroDosDigitosLinea);
 
-                    // Muestra el número de dos dígitos obtenido de la línea
+                    // Displays the two-digit number obtained from the line
                     System.out.println("Número de dos dígitos de la línea: " + numeroDosDigitosLinea);
                 }
             }
 
-            // 9) Cierra los recursos
+            // 9) Close resources
             reader.close();
             writer.close();
 
-            // 10) Suma los números de dos dígitos almacenados en la lista
+            // 10) Add two-digit numbers stored in the list
             int suma = 0;
             for (int num : numerosDosDigitos) {
                 suma += num;
@@ -104,8 +94,8 @@ public class Day1_Part2 {
 
             System.out.println("Proceso completado. El archivo modificado se encuentra en: " + outputFilePath);
 
-            // 11) Muestra la suma total de los números de dos dígitos
-            System.out.println("SOLUTION DAY 1, PART 2 EXERCISE: Suma total: " + suma);
+            // 11) Display the total sum of two-digit numbers
+            System.out.println("SOLUTION DAY 1, PART 2 EXERCISE: Total sum: " + suma);
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -114,7 +104,7 @@ public class Day1_Part2 {
         throw new UnsupportedOperationException("Unimplemented method 'solveDay1Part2'");
     }
 
-    // 4.b) fuera de la clase main: metodo para reemplazar palabras por numeros
+    // 4.b) outside the main class: method to replace words with numbers
     private static String reemplazarPalabrasConNumeros(String linea) {
         return linea.replaceAll("one", "o1e")
                 .replaceAll("two", "t2o")
